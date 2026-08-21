@@ -28,7 +28,7 @@ public class TicTacToe {
         int gameRoundType = chooseGameRound();
         if(gameRoundType == 1){
             playOneGameRound();
-        }else{
+        }else if(gameRoundType == 2){
             playThreeGameRounds();
         }
 
@@ -66,18 +66,28 @@ public class TicTacToe {
         }
     }
 
+    static char[][] makeGameBoard(){
+
+        char[][] gameBoard = new char[3][3];
+        char boardPosition = '1';
+
+        for(int row = 0 ; row < 3 ; row++){
+            for(int column = 0 ; column < 3 ; column++){
+                gameBoard[row][column] = boardPosition;
+                boardPosition++;
+            }
+        }
+        return gameBoard;
+    }
+
+    static void displayGameBoard(){
+    }
+
     static int playOneGameRound(){
         return 0;
     }
 
     static void playThreeGameRounds(){
-    }
-
-    static char[][] makeGameBoard(){
-        return null;
-    }
-
-    static void displayGameBoard(){
     }
 
     static void makePlayerMove(){
