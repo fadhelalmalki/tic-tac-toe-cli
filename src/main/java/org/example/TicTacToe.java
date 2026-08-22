@@ -80,8 +80,22 @@ public class TicTacToe {
         return gameBoard;
     }
 
-    static void displayGameBoard(){
-    }
+    static void displayGameBoard(char[][] gameBoard){
+        System.out.println();
+
+        for(int row = 0 ; row < 3 ; row++){
+            System.out.println("     |     |     ");
+            System.out.println("  " + gameBoard[row][0] + "  |  " + gameBoard[row][1] + "  |  " + gameBoard[row][2]);
+
+            if (row < 2) {
+                System.out.println("-----+-----+-----");
+            }
+        }
+
+        System.out.println("     |     |     ");
+        System.out.println();
+        }
+
 
     static int playOneGameRound(){
         return 0;
