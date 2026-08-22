@@ -31,8 +31,7 @@ public class TicTacToe {
         }else if(gameRoundType == 2){
             playThreeGameRounds();
         }
-
-    }
+   }
 
     static void startWelcoming(String text) throws InterruptedException {
         for (char character : text.toCharArray()) {
@@ -62,7 +61,7 @@ public class TicTacToe {
                 return 2;
             }
 
-            System.out.println("\u001B[31mPlease enter a valid choice\u001B[0m \n");
+            System.out.println("\u001B[31mPlease enter a valid choice\u001B[0m\n");
         }
     }
 
@@ -80,10 +79,10 @@ public class TicTacToe {
         return gameBoard;
     }
 
-    static void displayGameBoard(char[][] gameBoard){
+    static void displayGameBoard(char[][] gameBoard) {
         System.out.println();
 
-        for(int row = 0 ; row < 3 ; row++){
+        for (int row = 0; row < 3; row++) {
             System.out.println("     |     |     ");
             System.out.println("  " + gameBoard[row][0] + "  |  " + gameBoard[row][1] + "  |  " + gameBoard[row][2]);
 
@@ -94,20 +93,41 @@ public class TicTacToe {
 
         System.out.println("     |     |     ");
         System.out.println();
-        }
+    }
 
+    static void makePlayerMove(char[][] gameBoard){
+
+        while(true){
+            System.out.println("\u001B[34m▀▄▀▄▀▄\u001B[0m Choose your position number for this turn (1-9): \u001B[34m▄▀▄▀▄▀\u001B[0m");
+            int playerPosition = s.nextInt();
+
+            if(playerPosition < 1 || playerPosition > 9){
+                System.out.println("\u001B[31mPlease enter a position number between 1 and 9\u001B[0m");
+                continue;
+            }
+
+            int row = (playerPosition - 1) / (3);
+            int column = (playerPosition - 1) % (3);
+
+            if(gameBoard[row][column] == 'X' || gameBoard[row][column] == 'O'){
+                System.out.println("\u001B[31mThis position is taken, please reenter another position number\u001B[0m");
+                continue;
+            }
+
+            gameBoard[row][column] = 'X';
+            break;
+        }
+    }
+
+    static void makeComputerMove(){
+
+    }
 
     static int playOneGameRound(){
         return 0;
     }
 
     static void playThreeGameRounds(){
-    }
-
-    static void makePlayerMove(){
-    }
-
-    static void makeComputerMove(){
     }
 
     static boolean checkGameWinner(){
