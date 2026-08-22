@@ -138,15 +138,31 @@ public class TicTacToe {
         }
     }
 
+    static boolean checkGameWinner(char[][] gameBoard, char gameMarker){
+        for(int row = 0; row < 3; row++){
+            if(gameBoard[row][0] == gameMarker && gameBoard[row][1] == gameMarker && gameBoard[row][2] == gameMarker){
+                return true;
+            }
+        }
+        for(int column = 0; column < 3; column++){
+            if(gameBoard[0][column] == gameMarker && gameBoard[1][column] == gameMarker && gameBoard[2][column] ==gameMarker){
+                return true;
+            }
+        }
+        if(gameBoard[0][0] == gameMarker && gameBoard[1][1] == gameMarker && gameBoard[2][2] == gameMarker){
+            return true;
+        }
+        if(gameBoard[0][2] == gameMarker && gameBoard[1][1] == gameMarker && gameBoard[2][0] == gameMarker){
+            return true;
+        }
+        return false;
+    }
+
     static int playOneGameRound(){
         return 0;
     }
 
     static void playThreeGameRounds(){
-    }
-
-    static boolean checkGameWinner(){
-        return false;
     }
 
     static boolean checkIsGameBoardFull(){
