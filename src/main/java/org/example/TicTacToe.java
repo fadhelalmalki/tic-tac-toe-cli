@@ -19,17 +19,21 @@ public class TicTacToe {
    █    █    █    █ █    .    ·█         █    █    █ .  █ █   █ █    .    ·█         █    █    █   .      █ █    .    ·█
    █▄▄▄▄█    █▄▄▄▄█ █▄▄▄▄▄▄▄▄▄▄█         █▄▄▄▄█    █▄▄▄▄█ █▄▄▄█ █▄▄▄▄▄▄▄▄▄▄█         █▄▄▄▄█     ▀▄▄▄▄▄▄▄▄▀  █▄▄▄▄▄▄▄▄▄▄█  
                 """;
-        try{
+        try {
             startWelcoming(title);
-        }catch(InterruptedException e){
+        } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
 
-        int gameRoundType = chooseGameRound();
-        if(gameRoundType == 1){
-            playOneGameRound();
-        }else if(gameRoundType == 2){
-            playThreeGameRounds();
+        try {
+            int gameRoundType = chooseGameRound();
+            if (gameRoundType == 1) {
+                playOneGameRound();
+            } else if (gameRoundType == 2) {
+                playThreeGameRounds();
+            }
+        } catch (Exception e) {
+            System.out.println("An unexpected error occurred: " + e.getMessage());
         }
    }
 
@@ -211,7 +215,7 @@ public class TicTacToe {
 
         for(int round = 1; round <= 3; round++){
             System.out.println("\n╔═══════════════════════════════╗");
-            System.out.println("║           ROUND " + round + "   ║");
+            System.out.println("║           ROUND " + round + "             ║");
             System.out.println("╚═══════════════════════════════╝");
 
             int gameResult = playOneGameRound();
