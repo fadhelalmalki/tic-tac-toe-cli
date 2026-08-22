@@ -180,7 +180,7 @@ public class TicTacToe {
 
             if(checkGameWinner(gameBoard, 'X')){
                 displayGameBoard(gameBoard);
-                System.out.println("\u001B[34m▀▄▀▄▀▄\u001B[0m Player X won this game round! \u001B[34m▄▀▄▀▄▀\u001B[0m");
+                System.out.println("\u001B[34m▀▄▀▄▀▄\u001B[0m \u001B[32mPlayer X won this game round!\u001B[0m \u001B[34m▄▀▄▀▄▀\u001B[0m");
                 return 1;
             }
             if(checkIsGameBoardFull(gameBoard)){
@@ -193,7 +193,7 @@ public class TicTacToe {
 
             if(checkGameWinner(gameBoard, 'O')){
                 displayGameBoard(gameBoard);
-                System.out.println("\u001B[34m▀▄▀▄▀▄\u001B[0m Player O won this game round! \u001B[34m▄▀▄▀▄▀\u001B[0m");
+                System.out.println("\u001B[34m▀▄▀▄▀▄\u001B[0m \u001B[31mComputer won this game round!\u001B[0m \u001B[34m▄▀▄▀▄▀\u001B[0m");
                 return -1;
             }
             if(checkIsGameBoardFull(gameBoard)){
@@ -206,5 +206,38 @@ public class TicTacToe {
 
     static void playThreeGameRounds(){
 
+        int playerScore = 0;
+        int computerScore = 0;
+
+        for(int round = 1; round <= 3; round++){
+            System.out.println("\n╔═══════════════════════════════╗");
+            System.out.println("║           ROUND " + round + "   ║");
+            System.out.println("╚═══════════════════════════════╝");
+
+            int gameResult = playOneGameRound();
+            if(gameResult == 1){
+               playerScore++;
+            }else if(gameResult == -1){
+               computerScore++;
+            }
+
+            System.out.println("\n✦══════════ SCOREBOARD ══════════✦");
+            System.out.println("      You      : " + playerScore);
+            System.out.println("      Computer : " + computerScore);
+            System.out.println("✦════════════════════════════════✦");
+        }
+        System.out.println("\n╔═════════════════════════════════╗");
+        System.out.println("║          FINAL RESULT           ║");
+        System.out.println("╚═════════════════════════════════╝");
+        System.out.println("Your Score      : " + playerScore);
+        System.out.println("Computer Score  : " + computerScore);
+
+        if (playerScore > computerScore) {
+            System.out.println("\n\u001B[34m▀▄▀▄▀▄\u001B[0m \u001B[32mCongratulations! You are the overall winner!\u001B[0m \u001B[34m▄▀▄▀▄▀\u001B[0m");
+        } else if (computerScore > playerScore) {
+            System.out.println("\n\u001B[31mNoThe computer is the overall winner!\u001B[0m");
+        } else {
+            System.out.println("\n\u001B[31mNoIt's an overall draw!\u001B[0m");
+        }
     }
 }
