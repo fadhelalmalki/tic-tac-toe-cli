@@ -119,8 +119,23 @@ public class TicTacToe {
         }
     }
 
-    static void makeComputerMove(){
+    static void makeComputerMove(char[][] gameBoard){
 
+        int computerPosition;
+
+        while(true){
+            computerPosition = r.nextInt(9) + 1;
+
+            int row = (computerPosition - 1) / (3);
+            int column = (computerPosition - 1) % (3);
+
+            if(gameBoard[row][column] != 'X' && gameBoard[row][column] != 'O'){
+                gameBoard[row][column] = 'O';
+                System.out.println("\u001B[34m▀▄▀▄▀▄\u001B[0m Computer is playing again \u001B[34m▄▀▄▀▄▀\u001B[0m");
+                System.out.println("Computer chose the position: " + computerPosition);
+                break;
+            }
+        }
     }
 
     static int playOneGameRound(){
