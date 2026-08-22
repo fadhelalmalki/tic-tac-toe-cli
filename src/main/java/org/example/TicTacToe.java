@@ -158,14 +158,21 @@ public class TicTacToe {
         return false;
     }
 
+    static boolean checkIsGameBoardFull(char[][] gameBoard){
+        for(int row = 0; row < 3; row++){
+            for(int column = 0; column < 3; column++){
+                if(gameBoard[row][column] != 'X' &&  gameBoard[row][column] != 'O'){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     static int playOneGameRound(){
         return 0;
     }
 
     static void playThreeGameRounds(){
-    }
-
-    static boolean checkIsGameBoardFull(){
-        return false;
     }
 }
