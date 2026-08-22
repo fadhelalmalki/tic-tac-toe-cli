@@ -170,9 +170,41 @@ public class TicTacToe {
     }
 
     static int playOneGameRound(){
-        return 0;
+
+        char[][] gameBoard = makeGameBoard();
+        System.out.println("\u001B[34m▀▄▀▄▀▄\u001B[0m Let’s begin a new game! \u001B[34m▄▀▄▀▄▀\u001B[0m");
+
+        while(true){
+            displayGameBoard(gameBoard);
+            makePlayerMove(gameBoard);
+
+            if(checkGameWinner(gameBoard, 'X')){
+                displayGameBoard(gameBoard);
+                System.out.println("\u001B[34m▀▄▀▄▀▄\u001B[0m Player X won this game round! \u001B[34m▄▀▄▀▄▀\u001B[0m");
+                return 1;
+            }
+            if(checkIsGameBoardFull(gameBoard)){
+                displayGameBoard(gameBoard);
+                System.out.println("\u001B[31mNo winner this round!\u001B[0m");
+                return 0;
+            }
+
+            makeComputerMove(gameBoard);
+
+            if(checkGameWinner(gameBoard, 'O')){
+                displayGameBoard(gameBoard);
+                System.out.println("\u001B[34m▀▄▀▄▀▄\u001B[0m Player O won this game round! \u001B[34m▄▀▄▀▄▀\u001B[0m");
+                return -1;
+            }
+            if(checkIsGameBoardFull(gameBoard)){
+                displayGameBoard(gameBoard);
+                System.out.println("\u001B[31mNo winner this round!\u001B[0m");
+                return 0;
+            }
+        }
     }
 
     static void playThreeGameRounds(){
+
     }
 }
